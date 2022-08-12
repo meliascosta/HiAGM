@@ -4,7 +4,7 @@
 
 import json
 import os
-import helper.logger as logger
+import hiagm.helper.logger as logger
 
 
 class Configure(object):

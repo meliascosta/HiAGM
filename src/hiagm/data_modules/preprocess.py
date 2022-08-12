@@ -3,7 +3,7 @@
 
 import re
 import tqdm
-import helper.logger as logger
+import hiagm.helper.logger as logger
 import json
 
 english_stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll",

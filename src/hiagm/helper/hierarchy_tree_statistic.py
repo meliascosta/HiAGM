@@ -2,7 +2,7 @@
 # coding:utf-8
 
 import os
-from models.structure_model.tree import Tree
+from hiagm.models.structure_model.tree import Tree
 import json
 import copy
 from collections import defaultdict

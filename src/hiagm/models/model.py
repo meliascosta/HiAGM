@@ -2,12 +2,12 @@
 # coding:utf-8
 
 import torch.nn as nn
-from models.structure_model.structure_encoder import StructureEncoder
-from models.text_encoder import TextEncoder
-from models.embedding_layer import EmbeddingLayer
-from models.multi_label_attention import HiAGMLA
-from models.text_feature_propagation import HiAGMTP
-from models.origin import Classifier
+from hiagm.models.structure_model.structure_encoder import StructureEncoder
+from hiagm.models.text_encoder import TextEncoder
+from hiagm.models.embedding_layer import EmbeddingLayer
+from hiagm.models.multi_label_attention import HiAGMLA
+from hiagm.models.text_feature_propagation import HiAGMTP
+from hiagm.models.origin import Classifier
 
 
 DATAFLOW_TYPE = {

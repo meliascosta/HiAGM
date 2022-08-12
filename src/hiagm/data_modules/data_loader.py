@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-from data_modules.dataset import ClassificationDataset
-from data_modules.collator import Collator
+from hiagm.data_modules.dataset import ClassificationDataset
+from hiagm.data_modules.collator import Collator
 from torch.utils.data import DataLoader
 
 

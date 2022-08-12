@@ -1,17 +1,17 @@
 # !/usr/bin/env python
 # coding:utf-8
 
-import helper.logger as logger
-from models.model import HiAGM
+import hiagm.helper.logger as logger
+from hiagm.models.model import HiAGM
 import torch
 import sys
 from helper.configure import Configure
 import os
-from data_modules.data_loader import data_loaders
-from data_modules.vocab import Vocab
-from train_modules.criterions import ClassificationLoss
-from train_modules.trainer import Trainer
-from helper.utils import load_checkpoint
+from hiagm.data_modules.data_loader import data_loaders
+from hiagm.data_modules.vocab import Vocab
+from hiagm.train_modules.criterions import ClassificationLoss
+from hiagm.train_modules.trainer import Trainer
+from hiagm.helper.utils import load_checkpoint
 
 
 def set_optimizer(config, model):

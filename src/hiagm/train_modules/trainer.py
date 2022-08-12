@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-import helper.logger as logger
+import hiagm.helper.logger as logger
 from train_modules.evaluation_metrics import evaluate
 import torch
 import tqdm
