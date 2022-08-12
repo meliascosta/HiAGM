@@ -1,0 +1,27 @@
+[build-system]
+requires = ["flit_core>=3.2"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "hiagm"
+version = "0.0.1"
+authors = [
+  { name="Jie Zhou"},
+  { name="Martin Elias Costa", email="meliascosta@gmail.com" },
+]
+description = "Hierarchy aware text classification"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+install_requires = [
+    'torch >= 0.4.1',
+    'numpy >= 1.17.4'
+]
+[project.urls]
+"Homepage" = "https://github.com/Alibaba-NLP/HiAGM"
+

@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/HiAGM.egg-info/PKG-INFO
+src/HiAGM.egg-info/SOURCES.txt
+src/HiAGM.egg-info/dependency_links.txt
+src/HiAGM.egg-info/top_level.txt
+src/hiagm/__init__.py
+src/hiagm/evaluate.py
+src/hiagm/predict.py
+src/hiagm/train.py
