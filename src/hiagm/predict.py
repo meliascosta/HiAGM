@@ -37,7 +37,7 @@ def predict(text, config, model_checkpoint, max_labels=4):
                          max_size=50000)
 
     # build up model and load weights
-    checkpoint_model = torch.load(model_checkpoint)
+    checkpoint_model = torch.load(model_checkpoint, map_location=torch.device('cpu'))
     hiagm = HiAGM(config, corpus_vocab, model_type=config.model.type, model_mode='TEST')
     hiagm.load_state_dict(checkpoint_model['state_dict'])
     hiagm.to(config.train.device_setting.device)
@@ -64,7 +64,8 @@ def predict(text, config, model_checkpoint, max_labels=4):
 
 if __name__ == "__main__":
     configs = Configure(config_json_file=sys.argv[1])
-    text = sys.argv[2]
+    model_checkpoint = sys.argv[2]
+    text = sys.argv[3]
     if configs.train.device_setting.device == 'cuda':
         os.system('CUDA_VISIBLE_DEVICES=' + str(configs.train.device_setting.visible_device_list))
     else:
@@ -76,4 +77,4 @@ if __name__ == "__main__":
     if not os.path.isdir(configs.train.checkpoint.dir):
         os.mkdir(configs.train.checkpoint.dir)
 
-    predict(text, configs)
+    predict(text, configs, model_checkpoint)
