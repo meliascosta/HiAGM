@@ -8,6 +8,7 @@ import sys
 import numpy as np
 import pandas as pd
 import torch
+import torch.nn as nn
 from torch.utils.data import DataLoader
 
 import hiagm.helper.logger as logger
@@ -39,7 +40,12 @@ def predict(text, config, model_checkpoint, max_labels=4):
     # build up model and load weights
     checkpoint_model = torch.load(model_checkpoint, map_location=torch.device('cpu'))
     hiagm = HiAGM(config, corpus_vocab, model_type=config.model.type, model_mode='TEST')
-    hiagm.load_state_dict(checkpoint_model['state_dict'])
+    if config.model.quantize: 
+        hiagm =  torch.quantization.quantize_dynamic(
+        hiagm, {nn.LSTM, nn.Linear, nn.GRU, nn.RNN}, dtype=torch.qint8)
+        hiagm.load_state_dict(checkpoint_model)
+    else:
+        hiagm.load_state_dict(checkpoint_model['state_dict'])
     hiagm.to(config.train.device_setting.device)
     # define training objective & optimizer
     collate_fn = Collator(config, corpus_vocab)
